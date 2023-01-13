@@ -1,12 +1,9 @@
 package jm.task.core.jdbc.util;
 
-import com.mysql.jdbc.Driver;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -15,7 +12,7 @@ import org.hibernate.service.ServiceRegistry;
 import jm.task.core.jdbc.model.User;
 
 public class Util {
-    // реализуйте настройку соеденения с БД
+
      private static final String URL = "jdbc:mysql://localhost:3306/new_schema";
      private static final String USERNAME = "root";
      private static final String PASSWORD = "AmUlmaRch3011!";
@@ -35,11 +32,10 @@ public class Util {
     //----------------------------------------------------------------------------------
 
     private static SessionFactory sessionFactory;
-    public static SessionFactory getSessionFactory() {
+    public static final SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
-                // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
                 settings.put(Environment.URL, "jdbc:mysql://localhost:3306/new_schema?useSSL=false");
